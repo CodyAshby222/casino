@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 const BlackJack = () => {
   return (
-    <div>
-      <h3>Black Jack</h3>
-      <Link to="/">Home</Link>
+    <div className="main">
+      <h2 className="casino-font">Black Jack</h2>
+      <Link to="/">Go Back</Link>
     </div>
   );
 };

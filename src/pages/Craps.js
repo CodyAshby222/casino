@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 const Craps = () => {
   return (
-    <div>
-      <h3>Craps</h3>
-      <Link to="/">Home</Link>
+    <div className="main">
+      <h2 className="casino-font">Craps</h2>
+      <Link to="/">Go Back</Link>
     </div>
   );
 };
