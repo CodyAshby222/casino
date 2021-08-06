@@ -1,0 +1,8 @@
+.pokerBoard {
+  width: 1000px;
+  height: 800px;
+  background-size: contain;
+  object-fit: contain;
+  background-image: url("./Poker/PokerTable.png");
+  background-repeat: no-repeat;
+}

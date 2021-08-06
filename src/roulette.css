@@ -1,0 +1,16 @@
+.rouletteBoard {
+  width: 1000px;
+  height: 800px;
+  background-size: contain;
+  object-fit: contain;
+  background-image: url("./Roulette/RouletteWheel_SingleZero.png");
+  background-repeat: no-repeat;
+}
+.rouletterWheel {
+  width: 1000px;
+  height: 800px;
+  background-size: contain;
+  object-fit: contain;
+  background-image: url("./Roulette/Roulette_SingleZero.png");
+  background-repeat: no-repeat;
+}

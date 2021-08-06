@@ -1,0 +1,8 @@
+.slotsBoard{
+    width: 1000px;
+  height: 800px;
+  background-size: contain;
+  object-fit: contain;
+  background-image: url("./Slots/Slot\ Machine\ Barrel.png");
+  background-repeat: no-repeat;
+}

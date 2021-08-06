@@ -1,0 +1,8 @@
+.blackJackBoard {
+  width: 1000px;
+  height: 800px;
+  background-size: contain;
+  object-fit: contain;
+  background-image: url("./BlackJack/BlackJackTable.png");
+  background-repeat: no-repeat;
+}
