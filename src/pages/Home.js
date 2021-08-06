@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <div className="main">
-      <h1 className="casino-font text-center">Home</h1>
+    <div className="main white-text">
+      <h1 className="casino-font text-center">Choose Your Game!</h1>
       <div className="row-center">
         <Link to="/black-jack">
           <img
