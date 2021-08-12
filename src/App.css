@@ -36,3 +36,10 @@
   width: 350px;
   border: 1px solid black;
 }
+
+.chip {
+  width: 70px;
+  height: 70px;
+  margin: 30px 10px;
+  cursor: pointer;
+}

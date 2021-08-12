@@ -8,6 +8,13 @@
   background-image: url("./Craps/CrapsBoard_NoMulti.png");
 }
 
+.craps-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 .craps-btn {
   width: 139px;
   height: 220px;
@@ -47,9 +54,12 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.chip {
-  width: 70px;
-  height: 70px;
-  margin: 30px 10px;
-  cursor: pointer;
+.craps-chip {
+  width: 50px;
+  height: 50px;
+}
+
+.craps-middle-chip {
+  width: 75px;
+  height: 75px;
 }
