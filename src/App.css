@@ -6,7 +6,6 @@
 
 .main {
   max-width: 1200px;
-  border: 1px solid black;
   margin: 0 auto;
 }
 
@@ -23,6 +22,13 @@
   justify-content: center;
 }
 
+.row-space-between {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
 .white-text {
   color: #ffffff;
 }
@@ -31,15 +37,59 @@
   text-align: center;
 }
 
+.main-icon {
+  width: 800px;
+  margin: 100px;
+}
+
 .icons {
   padding: 20px;
   width: 350px;
-  border: 1px solid black;
 }
 
 .chip {
   width: 70px;
   height: 70px;
-  margin: 30px 10px;
+  margin: 0px 10px;
   cursor: pointer;
+}
+
+.down-arrow {
+  width: 20px;
+  height: 50px;
+  margin: 20px 10px;
+}
+
+.play-btn {
+  width: 350px;
+}
+
+.black-btn {
+  width: 250px;
+}
+
+.text-overlay {
+  position: relative;
+}
+
+.btn-text {
+  position: absolute;
+  font-size: 40px;
+  text-shadow: -2px 2px 0 #000, 2px 2px 0 #000, 2px -2px 0 #000,
+    -2px -2px 0 #000;
+  letter-spacing: 4px;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.black-btn-text {
+  position: absolute;
+  font-size: 40px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  color: black;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
