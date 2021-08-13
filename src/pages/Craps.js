@@ -29,7 +29,7 @@ const Craps = () => {
   return (
     <div className="main">
       <h2 className="casino-font">Craps</h2>
-      <Link to="/">Go Back</Link>
+      <Link to="/menu">Go Back</Link>
       <div className="crapsBoard">
         {/* Top Section */}
         <div className="row">
