@@ -5,7 +5,7 @@ const BlackJack = () => {
   return (
     <div className="main">
       <h2 className="casino-font">Black Jack</h2>
-      <Link to="/">Go Back</Link>
+      <Link to="/menu">Go Back</Link>
       <div className="blackJackBoard"></div>
     </div>
   );

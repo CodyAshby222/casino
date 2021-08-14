@@ -5,7 +5,7 @@ const Poker = () => {
   return (
     <div className="main">
       <h2 className="casino-font">Poker</h2>
-      <Link to="/">Go Back</Link>
+      <Link to="/menu">Go Back</Link>
       <div className="pokerBoard"></div>
     </div>
   );

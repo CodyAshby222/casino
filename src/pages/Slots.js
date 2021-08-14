@@ -5,7 +5,7 @@ const Slots = () => {
   return (
     <div className="main">
       <h2 className="casino-font">Slots</h2>
-      <Link to="/">Go Back</Link>
+      <Link to="/menu">Go Back</Link>
       <div className="slotsBoard"></div>
     </div>
   );
