@@ -8,6 +8,8 @@ import { crapsRules } from "../rules/crapsRules";
 const Craps = () => {
   const [chip, setChip] = useState(1);
   const [chipLocation, setChipLocation] = useState();
+  const [dieOne, setDieOne] = useState();
+  const [dieTwo, setDieTwo] = useState();
 
   useEffect(() => {}, []);
 
@@ -29,6 +31,11 @@ const Craps = () => {
         ) : null}
       </>
     );
+  };
+
+  const rollDice = () => {
+    setDieOne(Math.floor(Math.random() * 6) + 1);
+    setDieTwo(Math.floor(Math.random() * 6) + 1);
   };
 
   return (
@@ -88,11 +95,30 @@ const Craps = () => {
           </div>
           {/* Bottom Section */}
           <div className="row">
-            <div
-              onClick={() => setChipLocation("craps-field")}
-              className="field-btn craps-center"
-            >
-              {handleChipLocation("craps-field", "craps-middle-chip")}
+            <div>
+              <div className="craps-dice row-center">
+                {dieOne && dieTwo ? (
+                  <>
+                    <img
+                      className="craps-die"
+                      src={`/Overall UI/Dice${dieOne}.png`}
+                      alt="dieOne"
+                    />
+                    <img
+                      className="craps-die"
+                      src={`/Overall UI/Dice${dieTwo}.png`}
+                      alt="dieTwo"
+                    />
+                    {dieOne}
+                  </>
+                ) : null}
+              </div>
+              <div
+                onClick={() => setChipLocation("craps-field")}
+                className="field-btn craps-center"
+              >
+                {handleChipLocation("craps-field", "craps-middle-chip")}
+              </div>
             </div>
             <div style={{ marginTop: 52, marginLeft: 31 }}>
               <div
@@ -139,7 +165,12 @@ const Craps = () => {
           </div>
           <Chips setChipSelected={chipHandler} />
           <br />
-          <Button title={"BACK"} linkTo={"/"} />
+          <div className="row-space-between">
+            <Button title={"BACK"} linkTo={"/"} />
+            <div onClick={rollDice}>
+              <Button title={"ROLL"} />
+            </div>
+          </div>
         </div>
       </div>
     </>
