@@ -63,3 +63,7 @@
   width: 75px;
   height: 75px;
 }
+
+.craps-rules {
+  transform: translate(-260px, 200px);
+}
