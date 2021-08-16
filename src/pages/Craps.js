@@ -34,8 +34,48 @@ const Craps = () => {
   };
 
   const rollDice = () => {
-    setDieOne(Math.floor(Math.random() * 6) + 1);
-    setDieTwo(Math.floor(Math.random() * 6) + 1);
+    //Dice Values
+    let dieOneNum = Math.floor(Math.random() * 6) + 1;
+    let dieTwoNum = Math.floor(Math.random() * 6) + 1;
+    let dieTotal = dieOneNum + dieTwoNum;
+    setDieOne(dieOneNum);
+    setDieTwo(dieTwoNum);
+
+    //Location and Logic
+    const hardwaysArr = ["twos", "threes", "fours", "fives"];
+    const oneRollArr = ["anyCraps", 7, 3, 11, 2, 12];
+
+    if (chipLocation.toString().includes("craps-btn")) {
+      rowLogic(dieTotal);
+    } else if (chipLocation === "craps-field") {
+      fieldLogic(dieTotal);
+    } else if (hardwaysArr.includes(chipLocation)) {
+      hardwaysLogic(dieOneNum, dieTwoNum, dieTotal);
+    } else if (oneRollArr.includes(chipLocation)) {
+      oneRollLogic(dieOneNum, dieTwoNum, dieTotal);
+    } else {
+      //Chip hasn't been placed
+    }
+  };
+
+  const rowLogic = (dieTotal) => {
+    console.log("IM ON ROW");
+    //1:2?
+  };
+
+  const fieldLogic = (dieTotal) => {
+    console.log("IM ON FIELD");
+    // 1:1 on 3,4,9,10,11... 2:1 on 2... 3:1 on 12
+  };
+
+  const hardwaysLogic = (dieOne, dieTwo, dieTotal) => {
+    console.log("IM ON HARDWAYS");
+    //Keep until same num or craps hit?
+  };
+
+  const oneRollLogic = (dieOne, dieTwo, dieTotal) => {
+    console.log("I ON ONE BEt");
+    //Roll and Reset Roll
   };
 
   return (
@@ -167,9 +207,22 @@ const Craps = () => {
           <br />
           <div className="row-space-between">
             <Button title={"BACK"} linkTo={"/"} />
-            <div onClick={rollDice}>
-              <Button title={"ROLL"} />
-            </div>
+            {chipLocation ? (
+              <div onClick={rollDice}>
+                <Button title={"ROLL"} />
+              </div>
+            ) : (
+              <div className="text-overlay cursor">
+                <img
+                  className="black-btn"
+                  src="/Overall UI/ButtonUp.png"
+                  alt="btn"
+                />
+                <div className="transparent-roll-img transparent-btn-text casino-font">
+                  ROLL
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
