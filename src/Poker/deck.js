@@ -21,5 +21,4 @@ function shuffleDeck(deck) {
     } 
 }
 
-var testDeck = createDeck();
-shuffleDeck(testDeck);
+export default {createDeck, shuffleDeck};
