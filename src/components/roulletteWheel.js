@@ -17,7 +17,7 @@ const rouletterNumbers = [
   },
   {
     num: 4,
-    color: "red",
+    color: "black",
   },
   {
     num: 5,
@@ -25,7 +25,7 @@ const rouletterNumbers = [
   },
   {
     num: 6,
-    color: "red",
+    color: "black",
   },
   {
     num: 7,
@@ -33,7 +33,7 @@ const rouletterNumbers = [
   },
   {
     num: 8,
-    color: "red",
+    color: "black",
   },
   {
     num: 9,
@@ -41,7 +41,7 @@ const rouletterNumbers = [
   },
   {
     num: 10,
-    color: "red",
+    color: "black",
   },
   {
     num: 11,
@@ -49,7 +49,7 @@ const rouletterNumbers = [
   },
   {
     num: 12,
-    color: "red",
+    color: "black",
   },
   {
     num: 13,
@@ -57,7 +57,7 @@ const rouletterNumbers = [
   },
   {
     num: 14,
-    color: "red",
+    color: "black",
   },
   {
     num: 15,
@@ -65,7 +65,7 @@ const rouletterNumbers = [
   },
   {
     num: 16,
-    color: "red",
+    color: "black",
   },
   {
     num: 17,
@@ -73,7 +73,7 @@ const rouletterNumbers = [
   },
   {
     num: 18,
-    color: "red",
+    color: "black",
   },
   {
     num: 19,
@@ -81,7 +81,7 @@ const rouletterNumbers = [
   },
   {
     num: 20,
-    color: "red",
+    color: "black",
   },
   {
     num: 21,
@@ -89,7 +89,7 @@ const rouletterNumbers = [
   },
   {
     num: 22,
-    color: "red",
+    color: "black",
   },
   {
     num: 23,
@@ -97,7 +97,7 @@ const rouletterNumbers = [
   },
   {
     num: 24,
-    color: "red",
+    color: "black",
   },
   {
     num: 25,
@@ -105,7 +105,7 @@ const rouletterNumbers = [
   },
   {
     num: 26,
-    color: "red",
+    color: "black",
   },
   {
     num: 27,
@@ -113,7 +113,7 @@ const rouletterNumbers = [
   },
   {
     num: 28,
-    color: "red",
+    color: "black",
   },
   {
     num: 29,
@@ -121,7 +121,7 @@ const rouletterNumbers = [
   },
   {
     num: 30,
-    color: "red",
+    color: "black",
   },
   {
     num: 31,
@@ -129,7 +129,7 @@ const rouletterNumbers = [
   },
   {
     num: 32,
-    color: "red",
+    color: "black",
   },
   {
     num: 33,
@@ -137,7 +137,7 @@ const rouletterNumbers = [
   },
   {
     num: 34,
-    color: "red",
+    color: "black",
   },
   {
     num: 35,
@@ -145,7 +145,7 @@ const rouletterNumbers = [
   },
   {
     num: 36,
-    color: "red",
+    color: "black",
   },
 ];
 

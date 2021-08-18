@@ -8,8 +8,7 @@ import { useState } from "react";
 
 const Roulette = () => {
   const [degrees, setdegrees] = useState(1000);
-  // const wheel = document.getElementById("Wheel");
-  // console.log(wheel);
+  const [wheelNum, setWheenNum] = useState(null);
 
   const spinWheel = (extraValue) => {
     const wheel = document.getElementById("Wheel");
@@ -24,7 +23,8 @@ const Roulette = () => {
 
   const getNum = () => {
     let wheelNum = Math.floor(Math.random() * 36);
-    console.log(wheelNum);
+    let wheelPosition = rouletterNumbers[wheelNum];
+    setWheenNum(wheelPosition);
   };
 
   return (
@@ -116,9 +116,17 @@ const Roulette = () => {
         </div>
       </div>
       <div>
+        {wheelNum !== null ? (
+          <div>
+            <h1 style={{ color: "white" }}>{wheelNum.num}</h1>
+            <h1 style={{ color: "white" }}>{wheelNum.color}</h1>
+          </div>
+        ) : (
+          <div></div>
+        )}
         <div
           style={{ width: "200px", height: "20px", backgroundColor: "red" }}
-          onClick={() => spinWheel(degrees + 120)}
+          onClick={() => spinWheel(degrees + 1200)}
         >
           help
         </div>
