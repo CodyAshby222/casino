@@ -27,8 +27,12 @@
   cursor: pointer;
 }
 
+.craps-dice {
+  height: 215px;
+  width: 836px;
+}
+
 .field-btn {
-  margin-top: 215px;
   width: 836px;
   height: 150px;
   cursor: pointer;
@@ -62,4 +66,15 @@
 .craps-middle-chip {
   width: 75px;
   height: 75px;
+}
+
+.craps-rules {
+  width: 250px;
+  transform: translate(-260px, 200px);
+}
+
+.craps-die {
+  width: 100px;
+  height: 100px;
+  margin: 60px 40px;
 }

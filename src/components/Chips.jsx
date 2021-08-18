@@ -19,7 +19,7 @@ const Chips = ({ setChipSelected }) => {
       <div className="row-center">
         {chips.map((chip, index) => {
           return (
-            <>
+            <div key={`Arrow_${chip}_${index}`}>
               {chip ? (
                 <img
                   className="down-arrow"
@@ -29,7 +29,7 @@ const Chips = ({ setChipSelected }) => {
               ) : (
                 <div className="chip"></div>
               )}
-            </>
+            </div>
           );
         })}
       </div>
@@ -37,6 +37,7 @@ const Chips = ({ setChipSelected }) => {
         {allChips.map((chip, index) => {
           return (
             <img
+              key={`Chip_${chip}_${index}`}
               className="chip"
               onClick={() => {
                 setChipSelected(chip);
