@@ -3,11 +3,12 @@ import { Link } from "react-router-dom";
 import { BankContext } from "../App";
 import Button from "../components/Button";
 
+
 const Menu = () => {
   const [bank, setBank] = useContext(BankContext);
   return (
     <div className="main white-text casino-font">
-      <h1 style={{ marginTop: 75, letterSpacing: 3 }} className="text-center">
+      <h1 style={{ marginTop: 35, letterSpacing: 3 }} className="text-center">
         CHOOSE YOUR GAME:
       </h1>
       <div className="row-center">
