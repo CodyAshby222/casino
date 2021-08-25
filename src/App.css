@@ -54,6 +54,13 @@
   cursor: pointer;
 }
 
+.chipR {
+  width: 50px;
+  height: 50px;
+  margin: 0px;
+  cursor: pointer;
+}
+
 .down-arrow {
   width: 20px;
   height: 50px;
