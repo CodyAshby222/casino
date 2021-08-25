@@ -4,11 +4,17 @@ import "../roulette.css";
 import roulletteWheel from "../Roulette/RouletteWheel_SingleZero.png";
 
 import { rouletterNumbers } from "../components/roulletteWheel";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { BankContext } from "../App";
+import Chips from "../components/Chips";
 
 const Roulette = () => {
   const [degrees, setdegrees] = useState(1000);
   const [wheelNum, setWheenNum] = useState(null);
+  const [betPosition, setBetPosition] = useState("");
+  const [chip, setChip] = useState(1);
+  const [chipLocation, setChipLocation] = useState();
+  const [bank, setBank] = useContext(BankContext);
 
   const spinWheel = (extraValue) => {
     const wheel = document.getElementById("Wheel");
@@ -27,6 +33,23 @@ const Roulette = () => {
     setWheenNum(wheelPosition);
   };
 
+  const handleChipLocation = (location) => {
+    if (!chipLocation) {
+      setBank((prev) => prev - chip);
+    }
+    setChipLocation(location);
+  };
+
+  const handleClick = (location) => {
+    return (
+      <>
+        {chip && chipLocation === location ? (
+          <img className="chipR" src={`/Overall UI/Chip${chip}.png`} />
+        ) : null}
+      </>
+    );
+  };
+
   return (
     <div className="Roulette">
       <div className="header">
@@ -40,9 +63,15 @@ const Roulette = () => {
         <div className="rouletteBoard">
           <div className="mainBoard">
             <div className="zero">0</div>
-            <div className="rows">
-              <div className="row">
-                <div className="betOption">3</div>
+            <div className="rowRs">
+              <div className="rowR">
+                <div
+                  className="betOption"
+                  id="3"
+                  onClick={() => handleChipLocation(3)}
+                >
+                  {handleClick(3)}
+                </div>
                 <div className="betOption">6</div>
                 <div className="betOption">9</div>
                 <div className="betOption">12</div>
@@ -55,7 +84,7 @@ const Roulette = () => {
                 <div className="betOption">33</div>
                 <div className="betOption">36</div>
               </div>
-              <div className="row">
+              <div className="rowR">
                 <div className="betOption">2</div>
                 <div className="betOption">5</div>
                 <div className="betOption">8</div>
@@ -69,7 +98,7 @@ const Roulette = () => {
                 <div className="betOption">32</div>
                 <div className="betOption">35</div>
               </div>
-              <div className="row">
+              <div className="rowR">
                 <div className="betOption">1</div>
                 <div className="betOption">4</div>
                 <div className="betOption">7</div>
@@ -98,14 +127,14 @@ const Roulette = () => {
                 <div className="bottomBets"></div>
               </div>
             </div>
-            <div className="columnOne">
+            <div className="columnOne margin">
               <div className="oneToTwelve"></div>
               <div className="betOptions2">
                 <div className="bottomBets"></div>
                 <div className="bottomBets"></div>
               </div>
             </div>
-            <div className="columnOne">
+            <div className="columnOne margin">
               <div className="oneToTwelve"></div>
               <div className="betOptions2">
                 <div className="bottomBets"></div>
@@ -115,7 +144,7 @@ const Roulette = () => {
           </div>
         </div>
       </div>
-      <div>
+      <div className="roullette__button">
         {wheelNum !== null ? (
           <div>
             <h1 style={{ color: "white" }}>{wheelNum.num}</h1>
@@ -128,9 +157,10 @@ const Roulette = () => {
           style={{ width: "200px", height: "20px", backgroundColor: "red" }}
           onClick={() => spinWheel(degrees + 1200)}
         >
-          help
+          Spin
         </div>
       </div>
+      <Chips setChipSelected={(chip) => setChip(chip)} />
     </div>
   );
 };
