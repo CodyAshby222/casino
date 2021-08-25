@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { BankContext } from "../App";
 import Button from "../components/Button";
 
-
 const Menu = () => {
   const [bank, setBank] = useContext(BankContext);
   return (
@@ -49,7 +48,9 @@ const Menu = () => {
       </div>
       <div className="row-space-between">
         <Button title={"BACK"} linkTo={"/"} />
-        <Button title={"BANK"} />
+        <div onClick={() => setBank(10000)}>
+          <Button title={"BANK"} />
+        </div>
       </div>
     </div>
   );
