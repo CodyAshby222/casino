@@ -8,17 +8,14 @@ function createDeck() {
             deck.push(ranks[rankCounter] + suits[suitCounter]);
         }
     }
+    const updateDeck = deck;
+    const randomIndex = Math.floor(Math.random() * updateDeck.length);
+    const randomCard = updateDeck[randomIndex];
 
-    return deck;
+    updateDeck.splice(randomIndex, 1);
+    // console.log(updateDeck)
+    // console.log(randomCard)
+    return ("randomCard " + randomCard, updateDeck);
 }
 
-function shuffleDeck(deck) {
-    for(var i = 0; i < 52; i++) {
-        var tempCard = deck[i];
-        var randomIndex = Math.floor(Math.random() * 52);
-        deck[i] = deck[randomIndex];
-        deck[randomIndex] = tempCard;
-    } 
-}
-
-export default {createDeck, shuffleDeck};
+export {createDeck};
