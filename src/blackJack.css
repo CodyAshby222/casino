@@ -1,8 +1,572 @@
 .blackJackBoard {
-  width: 1000px;
-  height: 800px;
+  width: 1200px;
+  height: 650px;
+  margin: 30px auto 0 auto;
+  background-position: center;
   background-size: contain;
-  object-fit: contain;
   background-image: url("./BlackJack/BlackJackTable.png");
   background-repeat: no-repeat;
 }
+
+.clubsTwo {
+  background-image: url("./BlackJack/Cards/cardClubs2.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.clubsThree {
+  background-image: url("./BlackJack/Cards/cardClubs3.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.clubsFour {
+  background-image: url("./BlackJack/Cards/cardClubs4.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.clubsFive {
+  background-image: url("./BlackJack/Cards/cardClubs5.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.clubsSix {
+  background-image: url("./BlackJack/Cards/cardClubs6.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.clubsSeven {
+  background-image: url("./BlackJack/Cards/cardClubs7.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.clubsEight {
+  background-image: url("./BlackJack/Cards/cardClubs8.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.clubsNine {
+  background-image: url("./BlackJack/Cards/cardClubs9.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.clubsTen {
+  background-image: url("./BlackJack/Cards/cardClubs10.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.clubsJack {
+  background-image: url("./BlackJack/Cards/cardClubsJ.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.clubsQueen {
+  background-image: url("./BlackJack/Cards/cardClubsQ.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.clubsKing {
+  background-image: url("./BlackJack/Cards/cardClubsK.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.clubsAce {
+  background-image: url("./BlackJack/Cards/cardClubsA.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+/*  */
+
+.diamondsTwo {
+  background-image: url("./BlackJack/Cards/cardDiamonds2.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.diamondsThree {
+  background-image: url("./BlackJack/Cards/cardDiamonds3.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.diamondsFour {
+  background-image: url("./BlackJack/Cards/cardDiamonds4.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.diamondsFive {
+  background-image: url("./BlackJack/Cards/cardDiamonds5.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.diamondsSix {
+  background-image: url("./BlackJack/Cards/cardDiamonds6.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.diamondsSeven {
+  background-image: url("./BlackJack/Cards/cardDiamonds7.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.diamondsEight {
+  background-image: url("./BlackJack/Cards/cardDiamonds8.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.diamondsNine {
+  background-image: url("./BlackJack/Cards/cardDiamonds9.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.diamondsTen {
+  background-image: url("./BlackJack/Cards/cardDiamonds10.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.diamondsJack {
+  background-image: url("./BlackJack/Cards/cardDiamondsJ.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.diamondsQueen {
+  background-image: url("./BlackJack/Cards/cardDiamondsQ.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.diamondsKing {
+  background-image: url("./BlackJack/Cards/cardDiamondsK.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.diamondsAce {
+  background-image: url("./BlackJack/Cards/cardDiamondsA.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+/* */
+
+.heartsTwo {
+  background-image: url("./BlackJack/Cards/cardHearts2.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.heartsThree {
+  background-image: url("./BlackJack/Cards/cardHearts3.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.heartsFour {
+  background-image: url("./BlackJack/Cards/cardHearts4.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.heartsFive {
+  background-image: url("./BlackJack/Cards/cardHearts5.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.heartsSix {
+  background-image: url("./BlackJack/Cards/cardHearts6.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.heartsSeven {
+  background-image: url("./BlackJack/Cards/cardHearts7.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.heartsEight {
+  background-image: url("./BlackJack/Cards/cardHearts8.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.heartsNine {
+  background-image: url("./BlackJack/Cards/cardHearts9.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.heartsTen {
+  background-image: url("./BlackJack/Cards/cardHearts10.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.heartsJack {
+  background-image: url("./BlackJack/Cards/cardHeartsJ.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.heartsQueen {
+  background-image: url("./BlackJack/Cards/cardHeartsQ.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.heartsKing {
+  background-image: url("./BlackJack/Cards/cardHeartsK.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.heartsAce {
+  background-image: url("./BlackJack/Cards/cardHeartsA.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+/* */
+
+.spadesTwo {
+  background-image: url("./BlackJack/Cards/cardSpades2.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.spadesThree {
+  background-image: url("./BlackJack/Cards/cardSpades3.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.spadesFour {
+  background-image: url("./BlackJack/Cards/cardSpades4.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.spadesFive {
+  background-image: url("./BlackJack/Cards/cardSpades5.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.spadesSix {
+  background-image: url("./BlackJack/Cards/cardSpades6.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.spadesSeven {
+  background-image: url("./BlackJack/Cards/cardSpades7.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.spadesEight {
+  background-image: url("./BlackJack/Cards/cardSpades8.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.spadesNine {
+  background-image: url("./BlackJack/Cards/cardSpades9.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.spadesTen {
+  background-image: url("./BlackJack/Cards/cardSpades10.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.spadesJack {
+  background-image: url("./BlackJack/Cards/cardSpadesJ.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.spadesQueen {
+  background-image: url("./BlackJack/Cards/cardSpadesQ.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.spadesKing {
+  background-image: url("./BlackJack/Cards/cardSpadesK.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.spadesAce {
+  background-image: url("./BlackJack/Cards/cardSpadesA.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  background-size: contain;
+}
+
+.cardBack {
+  background-image: url("./BlackJack/Cards/cardBack_blue3.png");
+  background-repeat: no-repeat;
+  width: 75px;
+  height: 115px;
+  position: absolute;
+  top: 19px;
+  left: 979.5px;
+  background-size: contain;
+}
+
+.rules {
+  /* background-image: ; */
+}
+
+.backPosition {
+  position: relative;
+}
+
+.center {
+  margin: auto auto
+}
+
+.dealerHand {
+  display: flex;
+  justify-content: center;
+}
+
+.playerHand {
+  display: flex;
+  justify-content: center;
+}
+
+.btnBetsMain {
+  position: absolute;
+  top: 532px;
+  left: 1280px;
+}
+
+.dealerTotal {
+  font: normal normal 100 20px 'ChunkFive', sans-serif;
+  color: white;
+  text-align: center;
+  user-select: none;
+}
+
+.playerTotal {
+  font: normal normal 100 20px 'ChunkFive', sans-serif;
+  color: white;
+  text-align: center;
+  user-select: none;
+}
+
+.btnBets {
+  font: normal normal 700 36px 'ChunkFive', sans-serif;
+  text-align: center;
+  width: 190px;
+  height: 50px;
+  background: transparent url("./BlackJack/ButtonDown.png") 0% 0% no-repeat padding-box;
+  opacity: 1;
+  user-select: none;
+}
+
+.btnBets:hover {
+  cursor: pointer;
+}
+
+.btnBets:active {
+  opacity: 0.8;
+}
+
+.money {
+  margin-bottom: 15px;
+  font: normal normal 700 32px 'ChunkFive', sans-serif;
+  color: white;
+  text-align: end;
+}
+
+.message {
+  margin: 363px auto auto auto;
+  text-align: center;
+  font: normal normal 600 30px 'ChunkFive', sans-serif;
+  color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: green;
+}
+
+.card0 {
+  position: absolute;
+  top: 565px
+}
+
+.card1 {
+  position: absolute;
+  top: 590px;
+}
+
+.card2 {
+  position: absolute;
+  top: 615px;
+}
+
+.card3 {
+  position: absolute;
+  top: 640px;
+}
+ .card4 {
+   position: absolute;
+   top: 665px;
+ }
+
+ .card5 {
+   position: absolute;
+   top: 690px;
+ }
+
+ .dcard0 {
+   position: absolute;
+   top: 80px;
+ }
+
+ .dcard1 {
+  position: absolute;
+  top: 105px;
+ }
+
+ .dcard2 {
+  position: absolute;
+  top: 130px;
+ }
+
+ .dcard3 {
+  position: absolute;
+  top: 155px;
+ }
+
+ .dcard4 {
+  position: absolute;
+  top: 180px;
+ }
