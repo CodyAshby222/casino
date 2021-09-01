@@ -13,7 +13,6 @@ import "../Poker/cards.css";
       super(props);
       this.state = {
         deck: [],
-        dealer: null,
         player: null,
         money: 0,
         inputValue: '',
@@ -39,30 +38,27 @@ import "../Poker/cards.css";
       const playerCard1 = this.getRandomCard(deck);
       const dealerCard1 = this.getRandomCard(playerCard1.updatedDeck);
       const playerCard2 = this.getRandomCard(dealerCard1.updatedDeck);
-      const playerStartingHand = [playerCard1.randomCard, playerCard2.randomCard];
-      const dealerStartingHand = [dealerCard1.randomCard, {}];
+      const playerCard3 = this.getRandomCard(dealerCard1.updatedDeck);
+      const playerCard4 = this.getRandomCard(dealerCard1.updatedDeck);
+      const playerCard5 = this.getRandomCard(dealerCard1.updatedDeck);
+      const playerStartingHand = [playerCard1.randomCard, playerCard2.randomCard, playerCard3.randomCard, playerCard4.randomCard, playerCard5.randomCard];
   
       const player = {
         cards: playerStartingHand,
         count: this.getCount(playerStartingHand)
       };
-      const dealer = {
-        cards: dealerStartingHand,
-        count: this.getCount(dealerStartingHand)
-      };
   
-      return { updatedDeck: playerCard2.updatedDeck, player, dealer };
+      return { updatedDeck: playerCard2.updatedDeck, player };
     }
   
     startNewGame(type) {
       if (type === 'continue') {
         if (this.state.money > 0) {
           const deck = (this.state.deck.length < 10) ? this.generateDeck() : this.state.deck;
-          const { updatedDeck, player, dealer } = this.dealCards(deck);
+          const { updatedDeck, player } = this.dealCards(deck);
   
           this.setState({
             deck: updatedDeck,
-            dealer,
             player,
             bet: null,
             gameOver: false,
@@ -73,11 +69,10 @@ import "../Poker/cards.css";
         }
       } else {
         const deck = this.generateDeck();
-        const { updatedDeck, player, dealer } = this.dealCards(deck);
+        const { updatedDeck, player} = this.dealCards(deck);
   
         this.setState({
           deck: updatedDeck,
-          dealer,
           player,
           money: 100,
           inputValue: '',
@@ -115,14 +110,6 @@ import "../Poker/cards.css";
         const money = this.state.money - bet;
         this.setState({ money, inputValue: '', bet });
       }
-    }
-  
-  
-    dealerDraw(dealer, deck) {
-      const { randomCard, updatedDeck } = this.getRandomCard(deck);
-      dealer.cards.push(randomCard);
-      dealer.count = this.getCount(dealer.cards);
-      return { dealer, updatedDeck };
     }
   
     getCount(cards) {
@@ -168,10 +155,10 @@ import "../Poker/cards.css";
   
     render() {
       let dealerCount;
-      const card1 = this.state.dealer.cards[0].number;
-      const card2 = this.state.dealer.cards[1].number;
+      const card1 = this.state.player.cards[0].number;
+      const card2 = this.state.player.cards[1].number;
       if (card2) {
-        dealerCount = this.state.dealer.count;
+        dealerCount = this.state.player.count;
       } else {
         if (card1 === 'J' || card1 === 'Q' || card1 === 'K') {
           dealerCount = 10;
@@ -196,12 +183,7 @@ import "../Poker/cards.css";
                 : null
             }
           </div>
-          <div className="dealerTop">Total: {this.state.dealer.count}</div>
-          <div className="dealerHand">
-            {this.state.dealer.cards.map((card, i) => {
-              return <Card key={i} number={card.number} suit={card.suit} />;
-            })}
-          </div>
+          <div className="cardBack"></div>
           <div>{this.state.message}</div>
           <div className="dealerBottom">Your Total: ({this.state.player.count})</div>
           <div className="playerCardsMain">
