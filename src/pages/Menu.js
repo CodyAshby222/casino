@@ -1,9 +1,15 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { BankContext } from "../App";
+import Button from "../components/Button";
 
-const Home = () => {
+const Menu = () => {
+  const [bank, setBank] = useContext(BankContext);
   return (
-    <div className="main white-text">
-      <h1 className="casino-font text-center">Choose Your Game!</h1>
+    <div className="main white-text casino-font">
+      <h1 style={{ marginTop: 35, letterSpacing: 3 }} className="text-center">
+        CHOOSE YOUR GAME:
+      </h1>
       <div className="row-center">
         <Link to="/black-jack">
           <img
@@ -33,8 +39,21 @@ const Home = () => {
           />
         </Link>
       </div>
+      <div className="row-space-between">
+        <div></div>
+        <div>
+          <h2>CHIPS:</h2>
+          <h2>${bank}</h2>
+        </div>
+      </div>
+      <div className="row-space-between">
+        <Button title={"BACK"} linkTo={"/"} />
+        <div onClick={() => setBank(10000)}>
+          <Button title={"BANK"} />
+        </div>
+      </div>
     </div>
   );
 };
 
-export default Home;
+export default Menu;

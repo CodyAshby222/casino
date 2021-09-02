@@ -1,16 +1,134 @@
-.rouletteBoard {
-  width: 1000px;
-  height: 800px;
-  background-size: contain;
-  object-fit: contain;
-  background-image: url("./Roulette/RouletteWheel_SingleZero.png");
-  background-repeat: no-repeat;
+.header {
+  width: 100vh;
 }
-.rouletterWheel {
-  width: 1000px;
-  height: 800px;
+
+.rouletterGame {
+  display: flex;
+  flex-direction: row;
+}
+
+.rouletteBoard {
+  width: 750px;
+  height: 600px;
   background-size: contain;
   object-fit: contain;
   background-image: url("./Roulette/Roulette_SingleZero.png");
   background-repeat: no-repeat;
+}
+.rouletterWheel {
+  width: 600px;
+  height: 400px;
+  /* margin-top: 300px; */
+  background-size: contain;
+  object-fit: contain;
+  /* background-image: url("./Roulette/RouletteWheel_SingleZero.png"); */
+  background-repeat: no-repeat;
+}
+
+.rouletteBoard {
+  display: flex;
+  flex-direction: column;
+}
+
+.mainBoard {
+  display: flex;
+  flex-direction: row;
+}
+.rowRs {
+  /* margin-left: 53px; */
+}
+
+.rowR {
+  display: flex;
+  flex-direction: row;
+  /* width: 600px; */
+  padding-left: 2px;
+}
+
+.zero {
+  width: 75px;
+  /* padding-left: 65px; */
+  background-color: blanchedalmond;
+  opacity: 50%;
+}
+
+.zero:hover {
+  opacity: 80%;
+}
+
+.betOption {
+  width: 52px;
+  height: 73px;
+  background-color: antiquewhite;
+  opacity: 50%;
+}
+
+.betOption:hover {
+  opacity: 80%;
+}
+
+.OneToTwoOption {
+  width: 47px;
+  height: 70px;
+  background-color: blanchedalmond;
+  opacity: 50%;
+  /* border: 1px solid black; */
+}
+
+.OneToTwoOption:hover {
+  opacity: 80%;
+}
+
+.betOptions {
+  /* width: 700px; */
+  height: 140px;
+  /* background-color: aquamarine; */
+  display: flex;
+  flex-direction: row;
+  padding-left: 75px;
+}
+
+.columnOne {
+  width: 200px;
+  height: 110px;
+  display: flex;
+  flex-direction: column;
+
+  /* border: 3px solid black; */
+}
+
+.oneToTwelve {
+  width: 200px;
+  height: 83px;
+  /* background-color: aliceblue; */
+  background-color: antiquewhite;
+  opacity: 50%;
+}
+
+.oneToTwelve:hover {
+  opacity: 100%;
+}
+
+.betOptions2 {
+  display: flex;
+  flex-direction: row;
+  /* background-color: antiquewhite; */
+  height: 100px;
+}
+
+.bottomBets {
+  width: 110px;
+  height: 50px;
+  /* background-color: aquamarine; */
+  /* border: 1px solid black; */
+  background-color: antiquewhite;
+  opacity: 50%;
+}
+
+.bottomBets:hover {
+  opacity: 100%;
+}
+
+.margin {
+  margin-left: 10px;
 }

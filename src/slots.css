@@ -3,6 +3,27 @@
   height: 800px;
   background-size: contain;
   object-fit: contain;
-  background-image: url("./Slots/Slot\ Machine\ Barrel.png");
+  background-image: url("./assets/Slot\ Machine\ Barrel.png");
   background-repeat: no-repeat;
+}
+
+.slots-rules {
+  width: 250px;
+  transform: translate(-260px, 200px);
+}
+
+.slot-img{
+  width: 140px;
+}
+
+.sm-slot-img{
+  width: 50px;
+  height: 60px;
+}
+
+.green-box{
+  background-color: rgb(1, 75, 1);
+  border: 3px solid rgb(0, 195, 0);
+  padding: 15px 30px;
+  margin: 200px 100px 0px 70px
 }

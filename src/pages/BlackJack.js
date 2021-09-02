@@ -1,5 +1,9 @@
 import React from "react";
 import "../blackJack.css";
+import Button from "../components/Button";
+import Chips from "../components/Chips";
+import Rules from "../components/Rules";
+
 
 class BlackJack extends React.Component {
   constructor(props) {
@@ -8,12 +12,31 @@ class BlackJack extends React.Component {
       deck: [],
       dealer: null,
       player: null,
-      money: 0,
-      inputValue: '',
-      bet: null,
+      bank: 10000,
       gameOver: false,
-      message: null
+      message: null,
+      chip: 1,
+      chipLocation: null,
+      disable: false
     };
+  }
+
+  chipHandler = (chipValue) => {
+    this.setState({
+      chip: chipValue,
+    })
+  };
+
+  handleChipComponent() {
+    this.setState({
+      disable: true
+    });
+  }
+
+  enableChipComponent() {
+    this.setState({
+      disable: false
+    });
   }
 
   generateDeck() {
@@ -47,9 +70,9 @@ class BlackJack extends React.Component {
     return { updatedDeck: playerCard2.updatedDeck, player, dealer };
   }
 
-  startNewGame(type) {
-    if (type === 'continue') {
-      if (this.state.money > 0) {
+  startNewGame(click) {
+    if (click === 'continue') {
+      if (this.state.bank > 0) {
         const deck = (this.state.deck.length < 10) ? this.generateDeck() : this.state.deck;
         const { updatedDeck, player, dealer } = this.dealCards(deck);
 
@@ -57,12 +80,11 @@ class BlackJack extends React.Component {
           deck: updatedDeck,
           dealer,
           player,
-          bet: null,
           gameOver: false,
           message: null
         });
       } else {
-        this.setState({ message: 'Game over!' });
+        this.setState({ message: 'You have no more money!' });
       }
     } else {
       const deck = this.generateDeck();
@@ -72,9 +94,7 @@ class BlackJack extends React.Component {
         deck: updatedDeck,
         dealer,
         player,
-        money: 100,
-        inputValue: '',
-        bet: null,
+        bank: 10000,
         gameOver: false,
         message: null
       });
@@ -90,24 +110,13 @@ class BlackJack extends React.Component {
     return { randomCard, updatedDeck };
   }
 
-  placeBet() {
-    const bet = this.state.inputValue;
-
-    if (bet > this.state.money) {
-      this.setState({ message: `You don't have enough to do that. You have ${"$" + this.state.money} to use.` });
-    } else if (bet % 1 !== 0) {
-      this.setState({ message: 'Bet using numeric numbers only!' });
-    } else {
-      const money = this.state.money - bet;
-      this.setState({ money, inputValue: '', bet });
-    }
-  }
-
   hit() {
     if (!this.state.gameOver) {
-      if (this.state.bet) {
+      if (this.state.bank) {
         const { randomCard, updatedDeck } = this.getRandomCard(this.state.deck);
-        const player = this.state.player;
+        let player = this.state.player;
+        let bank = this.state.bank;
+        let playerCards = this.state.player.cards;
         player.cards.push(randomCard);
         player.count = this.getCount(player.cards);
 
@@ -115,27 +124,94 @@ class BlackJack extends React.Component {
           this.setState({
             player,
             gameOver: true,
+            bank: bank - this.state.chip,
             message: 'BUST!'
           });
-        }
-        else if (player.count === 21) {
+        } 
+        // console.log(playerCards.length)
+        if (playerCards.length >= 5) {
           this.setState({
             player,
-            money: this.state.money + this.state.currentBet * 2 + this.currentBet,
+            bank: bank + this.state.chip * 3 + this.state.chip,
             gameOver: true,
-            message: 'Jackblack! You win!'
+            message: '5-Card Charlie! You win!'
           });
-        } else {
+        } 
+        else {
           this.setState({ deck: updatedDeck, player });
         }
-      } else {
-        this.setState({ message: 'Please place a bet.' });
       }
     } else {
-      this.setState({ message: 'Game over!' });
+      this.setState({ message: 'Round ended. Please Continue.' });
     }
   }
 
+  stand() {
+    if (!this.state.gameOver) {
+      // console.log(this.state.bank)
+      let randomCard = this.getRandomCard(this.state.deck);
+      let deck = randomCard.updatedDeck;
+      let dealer = this.state.dealer;
+      let playerCards = this.state.player.cards;
+      dealer.cards.pop();
+      dealer.cards.push(randomCard.randomCard);
+      dealer.count = this.getCount(dealer.cards);
+
+      while (dealer.count < 17) {
+        const draw = this.dealerDraw(dealer, deck);
+        deck = draw.updatedDeck;
+        dealer = draw.dealer;
+      }
+      if (dealer.count > 21) {
+        let bank = this.state.bank;
+        this.setState({
+          deck,
+          dealer,
+          bank: bank + this.state.chip * 2,
+          gameOver: true,
+          message: 'Dealer bust! You win!'
+        });
+      }
+      playerCards = playerCards.filter((card, i) => i < 2)
+      // console.log(playerCards);
+      // console.log("Count:" + this.getCount(playerCards));
+      //Filter for BlackJack Win
+      if (this.getCount(playerCards) === 21) {
+        let player = this.state.player;
+        let bank = this.state.bank;
+        this.setState({
+          player,
+          bank: bank + this.state.chip * 2 + this.state.chip,
+          gameOver: true,
+          message: 'Jackblack! You win!'
+        });
+        // console.log("Worked")
+      } else {
+        const winner = this.getWinner(dealer, this.state.player);
+        let bank = this.state.bank;
+        let message;
+
+        if (winner === 'dealer') {
+          message = 'Dealer wins!';
+          bank -= this.state.chip;
+        } else if (winner === 'player') {
+          bank += this.state.chip * 2;
+          message = 'You win!';
+        } else {
+          message = 'Draw.';
+        }
+        this.setState({
+          deck,
+          dealer,
+          bank,
+          gameOver: true,
+          message
+        });
+      }
+    } else {
+      this.setState({ message: 'Round ended. Please Continue.' });
+    }
+  }
 
   dealerDraw(dealer, deck) {
     const { randomCard, updatedDeck } = this.getRandomCard(deck);
@@ -144,72 +220,16 @@ class BlackJack extends React.Component {
     return { dealer, updatedDeck };
   }
 
-  stand() {
-    if (!this.state.gameOver) {
-      // Show dealer's 2nd card
-      const randomCard = this.getRandomCard(this.state.deck);
-      let deck = randomCard.updatedDeck;
-      let dealer = this.state.dealer;
-      dealer.cards.pop();
-      dealer.cards.push(randomCard.randomCard);
-      dealer.count = this.getCount(dealer.cards);
-
-      // Keep drawing cards until count is 17 or more
-      // <= 16 less than or equal to 16
-      while (dealer.count < 17) {
-        const draw = this.dealerDraw(dealer, deck);
-        dealer = draw.dealer;
-        deck = draw.updatedDeck;
-      }
-
-      if (dealer.count > 21) {
-        this.setState({
-          deck,
-          dealer,
-          money: this.state.money + this.state.currentBet * 2,
-          gameOver: true,
-          message: 'Dealer bust! You win!'
-        });
-      } else {
-        const winner = this.getWinner(dealer, this.state.player);
-        let money = this.state.money;
-        let message;
-
-        if (winner === 'dealer') {
-          message = 'Dealer wins!';
-          //payouts
-        } else if (winner === 'player') {
-          money += this.state.currentBet * 2;
-          message = 'You win!';
-        } else {
-          money += this.state.currentBet;
-          message = 'Push.';
-        }
-
-        this.setState({
-          deck,
-          dealer,
-          money,
-          gameOver: true,
-          message
-        });
-      }
-    } else {
-      this.setState({ message: 'Game over! Please start a new game.' });
-    }
-  }
-
   getCount(cards) {
-    const rearranged = [];
+    const shuffle = [];
     cards.forEach(card => {
       if (card.number === 'A') {
-        rearranged.push(card);
+        shuffle.push(card);
       } else if (card.number) {
-        rearranged.unshift(card);
+        shuffle.unshift(card);
       }
     });
-
-    return rearranged.reduce((total, card) => {
+    return shuffle.reduce((total, card) => {
       if (card.number === 'J' || card.number === 'Q' || card.number === 'K') {
         return total + 10;
       } else if (card.number === 'A') {
@@ -226,26 +246,12 @@ class BlackJack extends React.Component {
     } else if (dealer.count < player.count) {
       return 'player';
     } else {
-      return 'push';
-    }
-  }
-
-  inputChange(e) {
-    const inputValue = +e.target.value;
-    this.setState({ inputValue });
-  }
-
-  handleKeyDown(e) {
-    const enter = 13;
-    if (e.keyCode === enter) {
-      this.placeBet();
+      return 'draw';
     }
   }
 
   componentWillMount() {
     this.startNewGame();
-    const body = document.querySelector('body');
-    body.addEventListener('keydown', this.handleKeyDown.bind(this));
   }
 
   render() {
@@ -266,33 +272,27 @@ class BlackJack extends React.Component {
 
     return (
       <div className="blackJackBoard">
+        <div className="bjRules">
+          <Rules
+            iconImg={"BlackJack Icon"}
+            modalTitle={"BlackJack Instructions"}
+          />
+        </div>
         <div className="btnBetsMain">
           <div className="buttons">
-            <button onClick={() => { this.startNewGame() }}>New Game</button>
-            <div className="money">CHIPS: <br />${this.state.money}</div>
+            <div className="money">CHIPS: <br />${this.state.bank}</div>
             <div onClick={() => { this.stand() }} className="btnBets">STAND</div>
             <div onClick={() => { this.hit() }} className="btnBets">HIT</div>
           </div>
           {
-            !this.state.bet ?
-              <div>
-                <form>
-                  <input type="text" name="bet" placeholder="Bet Amount" value={this.state.inputValue} onChange={this.inputChange.bind(this)} />
-                </form>
-                <button onClick={() => { this.placeBet() }}>Place Bet</button>
-              </div>
-              : null
-          }
-          {
             this.state.gameOver ?
               <div className="buttons">
-                <button onClick={() => { this.startNewGame('continue') }}>Continue</button>
+                <div className="continueBtn" onClick={() => { this.startNewGame('continue'); this.enableChipComponent(this)}}>Continue</div>
               </div>
               : null
           }
         </div>
         <div className="playerCards">
-
           <div className="backPosition">
             <div className="cardBack"></div>
           </div>
@@ -303,11 +303,18 @@ class BlackJack extends React.Component {
             })}
           </div>
           <div className="message">{this.state.message}</div>
-          <div className="playerTotal" style={this.state.message === null ? {marginTop: 464} : {marginTop: 65}}>{this.state.player.count}</div>
+          <div className="playerTotal" style={this.state.message === null ? { marginTop: 464 } : { marginTop: 65.5 }}>{this.state.player.count}</div>
           <div className="playerHand">
             {this.state.player.cards.map((card, i) => {
               return <div className={`card${i}`}><Card key={i} number={card.number} suit={card.suit} /></div>
             })}
+          </div>
+          <div className="blackJackChips" style={this.state.disable === false ? { opacity: 1, pointerEvents: 'auto'} : { opacity: 0.7, pointerEvents: 'none'}} onClick={this.handleChipComponent.bind(this)}>
+            {/* {<Chips setChipSelected={(chip) => this.setState({ chip })} />} */}
+            {<Chips setChipSelected={this.chipHandler} />}
+          </div>
+          <div className="backBtn">
+            <Button title={"BACK"} linkTo={"/"} />
           </div>
         </div>
       </div>
