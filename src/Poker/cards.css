@@ -270,13 +270,13 @@
   }
   
   .dealerHand {
-    background-color: blue;
+    /* background-color: blue; */
     margin: auto auto;
     text-align: center;
     width: 500px;
   }
   
   .playerCards {
-    background-color: blue;
+    /* background-color: blue; */
     margin: auto auto
   }
