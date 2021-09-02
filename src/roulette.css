@@ -5,6 +5,7 @@
 .rouletterGame {
   display: flex;
   flex-direction: row;
+  height: 450px;
 }
 
 .rouletteBoard {
@@ -41,15 +42,12 @@
 .rowR {
   display: flex;
   flex-direction: row;
-  /* width: 600px; */
+
   padding-left: 2px;
 }
 
 .zero {
   width: 75px;
-  /* padding-left: 65px; */
-  background-color: blanchedalmond;
-  opacity: 50%;
 }
 
 .zero:hover {
@@ -59,8 +57,6 @@
 .betOption {
   width: 52px;
   height: 73px;
-  background-color: antiquewhite;
-  opacity: 50%;
 }
 
 .betOption:hover {
@@ -70,9 +66,6 @@
 .OneToTwoOption {
   width: 47px;
   height: 70px;
-  background-color: blanchedalmond;
-  opacity: 50%;
-  /* border: 1px solid black; */
 }
 
 .OneToTwoOption:hover {
@@ -101,8 +94,8 @@
   width: 200px;
   height: 83px;
   /* background-color: aliceblue; */
-  background-color: antiquewhite;
-  opacity: 50%;
+  /* background-color: antiquewhite; */
+  /* opacity: 50%; */
 }
 
 .oneToTwelve:hover {
@@ -121,8 +114,8 @@
   height: 50px;
   /* background-color: aquamarine; */
   /* border: 1px solid black; */
-  background-color: antiquewhite;
-  opacity: 50%;
+  /* background-color: antiquewhite; */
+  /* opacity: 50%; */
 }
 
 .bottomBets:hover {
@@ -131,4 +124,41 @@
 
 .margin {
   margin-left: 10px;
+}
+
+.R_Button {
+  width: 90px;
+  height: 30px;
+
+  margin-left: 20px;
+
+  border-radius: 5px;
+
+  text-align: center;
+
+  font-size: 30px;
+  font-weight: bolder;
+
+  color: #000;
+  background-color: rgb(255, 234, 42);
+
+  cursor: pointer;
+
+  transition: all 0.2s ease-in-out;
+}
+
+.R_Button:hover {
+  transform: scale(1.1);
+}
+
+.rolledOption {
+  display: flex;
+  flex-direction: row;
+}
+
+.roullette__button {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
 }
