@@ -21,7 +21,7 @@ const Menu = () => {
         <Link to="/craps">
           <img className="icons" src="/Overall UI/Craps Icon.png" alt="Craps" />
         </Link>
-        <Link to="/poker">
+        <Link to="/menu">
           <img className="icons" src="/Overall UI/Poker Icon.png" alt="Poker" />
         </Link>
         <Link to="/roulette">
